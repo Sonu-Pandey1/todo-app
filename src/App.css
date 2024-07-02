@@ -113,8 +113,8 @@ h3 {
 }
 
 /* todos */
-/* 
-.todos-wrapper {
+
+/* .todos-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -136,5 +136,13 @@ h3 {
 .list-group-item.completed {
   text-decoration: line-through;
   color: gray;
+} */
+  
+.todo{
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 2%;
+  margin-top: 10%;
 }
-   */
+.input{
+  height: 2.3rem;
+}

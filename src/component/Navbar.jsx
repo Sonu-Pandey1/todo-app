@@ -14,7 +14,7 @@ function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mx-auto">
                         <li className="nav-item">
-                            <NavLink className="nav-link" exact to="/" >Home</NavLink>
+                            <NavLink className="nav-link" to="/" >Home</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/todos" >Your-Todos</NavLink>
