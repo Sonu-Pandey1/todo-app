@@ -7,7 +7,7 @@ const Home = () => {
         <div className="container">
           <h1 className="display-4">Welcome to Our Website!</h1>
           <p className="lead">Creating high-quality web applications tailored to your needs.</p>
-          <a href="/contact" className="btn btn-primary btn-lg mt-3">Get in Touch</a>
+          <a href="/contact" className="btn btn-outline-info btn-lg mt-3">Get in Touch</a>
         </div>
       </header>
 
