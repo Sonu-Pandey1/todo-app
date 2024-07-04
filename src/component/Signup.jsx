@@ -35,16 +35,7 @@ const Signup = () => {
     })
   };
 
-  // const create = async (data)=>{
-  //   try {
-  //     const userData = await authService.createUser(data)
-  //     console.log(userData)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-
-  // }
-
+ 
 
 
 

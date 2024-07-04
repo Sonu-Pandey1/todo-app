@@ -33,7 +33,7 @@ const Login = () => {
   const login = async (formData) => {
     try {
       const data = await authService.login(formData)
-      // console.log(data)
+      console.log(data)
       if(data){
         // const userData = await authService.getCurrentUser()
         // console.log(userData)

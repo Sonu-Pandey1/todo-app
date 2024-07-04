@@ -11,6 +11,7 @@ import Signup from "./component/Signup"
 import Page404 from "./component/Page404"
 import Protacted from "./component/Protacted"
 import Todos from './component/Todos';
+import Verify from './component/Verify';
 
 function App() {
   
@@ -27,6 +28,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/verify' element={<Verify/>} />
         <Route path='/*' element={<Page404 />} />
       </Routes>
      
