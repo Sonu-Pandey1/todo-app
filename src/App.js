@@ -9,17 +9,21 @@ import Contact from "./component/Contact"
 import Login from "./component/Login"
 import Signup from "./component/Signup"
 import Page404 from "./component/Page404"
-import Todos from "./component/Todos"
+import Protacted from "./component/Protacted"
+import Todos from './component/Todos';
 
 function App() {
+  
+
   return (
     <div className="App">
+    
       <Navbar />
       
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='/todos' element={<Todos />} />
+        <Route path='/todos' element={<Protacted Cmd = {Todos}/>} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />

@@ -1,8 +1,19 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import authService from '../appwrite/auth';
 // import './Navbar.css'; // Import custom CSS for additional styling
 
 function Navbar() {
+    const navigate = useNavigate()
+
+    const logoutHandler = async ()=>{
+        const x = await authService.logout()
+        // navigate("/login")
+        console.log(x)
+        console.log("logout successfully .")
+        
+
+    }
     return (
         <div>
             <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
@@ -28,7 +39,8 @@ function Navbar() {
                     </ul>
                     <div>
                         <NavLink to={"/login"} ><button className='btn btn-outline-light'>Login</button></NavLink>&nbsp;&nbsp;&nbsp;
-                        <NavLink to={"/signup"}><button className='btn btn-outline-light'>Signup</button></NavLink>
+                        <NavLink to={"/signup"}><button className='btn btn-outline-light'>Signup</button></NavLink>&nbsp;&nbsp;&nbsp;
+                        <NavLink to={"/signup"}><button onClick={logoutHandler} className='btn btn-outline-danger'>Logout</button></NavLink>
                     </div>
                 </div>
             </nav>

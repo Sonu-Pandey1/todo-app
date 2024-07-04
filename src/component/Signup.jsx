@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
-// import './Auth.css'; // Import custom CSS for additional styling
+import authService from "../appwrite/auth"
+import { NavLink, useNavigate } from 'react-router-dom';
+// import {account} from "../appwrite/auth"
+// import { ID } from 'appwrite';
+// import conf from '../conf/conf';
 
 const Signup = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,11 +21,33 @@ const Signup = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    // Handle form submission to the database
     console.log('Signup Data:', formData);
+    // authService.createUser()
+    // createUser(formData)
+    authService.createUser(formData)
+    // create(formData)
+    setFormData({
+      name:"",
+      password:"",
+      email:""
+    })
   };
+
+  // const create = async (data)=>{
+  //   try {
+  //     const userData = await authService.createUser(data)
+  //     console.log(userData)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+
+  // }
+
+
+
+
 
   return (
     <div className="auth-wrapper">
@@ -64,7 +91,7 @@ const Signup = () => {
             Sign Up
           </button>
           <p className="forgot-password text-right">
-            Already registered <a href="/">sign in?</a>
+            Already registered <NavLink to="/login">Login ?</NavLink>
           </p>
         </form>
       </div>

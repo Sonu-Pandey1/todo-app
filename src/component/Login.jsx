@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import authService from '../appwrite/auth';
+import { useNavigate } from 'react-router-dom';
 // import './Auth.css'; // Import custom CSS for additional styling
 
 const Login = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -19,7 +22,31 @@ const Login = () => {
     e.preventDefault();
     // Handle form submission to the database
     console.log('Login Data:', formData);
+    // authService.login(formData)
+    login(formData)
+    setFormData({
+      email:"",
+      password:""
+    })
   };
+
+  const login = async (formData) => {
+    try {
+      const data = await authService.login(formData)
+      console.log(data)
+      if(data){
+        // const userData = await authService.getCurrentUser()
+        // console.log(userData)
+        navigate("/todos")
+
+      }else{
+        console.log("current user cant find")
+      }
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className="auth-wrapper">

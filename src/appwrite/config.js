@@ -1,4 +1,6 @@
-import { Databases, Client, Storage, ID } from "appwrite";
+
+
+import { Databases, Client, Storage, ID, Query } from "appwrite";
 import conf from "../conf/conf"
 
 export class ConfigService {
@@ -7,18 +9,21 @@ export class ConfigService {
     storage;
 
     constructor() {
-        this.client().setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId);
+        this.client.setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId);
         this.databases = new Databases(this.client);
-        this.storage = new Storage(this.client)
+        // this.storage = new Storage(this.client)
     }
 
-    async createPost({ content }) {
+    async createPost({ todo,email }) {
         try {
-            await this.databases.createDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, ID.unique(), {
-                content,
+            return await this.databases.createDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, ID.unique(), {
+                todo:todo,
+                email:email
+                
             })
 
         } catch (error) {
+            console.log(conf.appwriteCollectionId)
             console.log(error)
         }
 
@@ -56,12 +61,12 @@ export class ConfigService {
 
     }
 
-    async getPosts() {
+    async getPosts(userEmail) {
         try {
-            return await this.databases.listDocuments(conf.appwriteDatabaseId, conf.appwriteCollectionId,
-                [
-                    // Query.equal("email","sonupandey@gmail.com")
-                ])
+            return  await this.databases.listDocuments(conf.appwriteDatabaseId, conf.appwriteCollectionId, [
+                Query.equal('email', userEmail)
+              ]);
+             
 
         } catch (error) {
             console.log(error)

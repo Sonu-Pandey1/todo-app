@@ -142,7 +142,7 @@ h3 {
 
   border: 2px solid rgb(255, 255, 255);
   border-radius: 2%;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 .input{
   height: 2.3rem;
@@ -173,3 +173,78 @@ h3 {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+
+.container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.user-info {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-info h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.user-info p {
+  margin: 5px 0;
+}
+
+.user-info p strong {
+  color: #555;
+}
+
+.todo {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .user-info, .todo {
+    padding: 15px;
+  }
+}
+
+
+/* Todos.css */
+.todo {
+  width: 90%; /* Default width for small screens */
+  max-width: 500px; /* Set a maximum width */
+  margin: 0 auto; /* Center the div horizontally */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+@media (min-width: 576px) {
+  .todo {
+    width: 80%; /* Medium screen */
+  }
+}
+
+@media (min-width: 768px) {
+  .todo {
+    width: 60%; /* Large screen */
+  }
+}
+
+@media (min-width: 992px) {
+  .todo {
+    width: 50%; /* Extra large screen */
+  }
+}
+
+@media (min-width: 1200px) {
+  .todo {
+    width: 30%; /* Extra extra large screen */
+  }
+}
+
