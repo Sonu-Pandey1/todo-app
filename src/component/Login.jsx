@@ -21,7 +21,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission to the database
-    console.log('Login Data:', formData);
+    // console.log('Login Data:', formData);
     // authService.login(formData)
     login(formData)
     setFormData({
@@ -33,7 +33,7 @@ const Login = () => {
   const login = async (formData) => {
     try {
       const data = await authService.login(formData)
-      console.log(data)
+      // console.log(data)
       if(data){
         // const userData = await authService.getCurrentUser()
         // console.log(userData)

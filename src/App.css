@@ -143,6 +143,7 @@ h3 {
   border: 2px solid rgb(255, 255, 255);
   border-radius: 2%;
   margin-top: 5%;
+  
 }
 .input{
   height: 2.3rem;
@@ -150,34 +151,39 @@ h3 {
 
 
 .todo {
-  max-width: 600px;
+
 }
 
 .input {
   flex: 1;
   min-width: 0;
+  /* background-color: red; */
 }
 
 .list-group-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  word-wrap: break-word;
+  word-wrap:break-word;
   overflow-wrap: break-word;
+  /* background-color: red; */
+  border-radius: 10%;
 }
 
 .todo-text {
   flex: 1;
   margin-right: 10px;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  text-overflow:ellipsis;
+  /* white-space: nowrap; */
+  /* background-color: #17a2b8; */
 }
 
 
 .container {
   font-family: Arial, sans-serif;
   padding: 20px;
+  /* background-color: red; */
 }
 
 .user-info {
@@ -218,15 +224,26 @@ h3 {
 /* Todos.css */
 .todo {
   width: 90%; /* Default width for small screens */
-  max-width: 500px; /* Set a maximum width */
+  max-width: 700px; /* Set a maximum width */
   margin: 0 auto; /* Center the div horizontally */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 
+@media (max-width: 576px) {
+  .todo {
+    width: 80%; /* Medium screen */
+    /* margin: 0px 0px !important; */
+    padding: 0px !important;
+    /* background-color: rgb(0, 255, 72); */
+  }
+}
 @media (min-width: 576px) {
   .todo {
     width: 80%; /* Medium screen */
+    /* margin: 0px !important; */
+    /* padding: 0px !important; */
+    /* background-color: red; */
   }
 }
 

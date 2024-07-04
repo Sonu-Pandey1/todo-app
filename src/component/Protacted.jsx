@@ -24,7 +24,7 @@ function Protected({ Cmd }) {
 
   return (
     <div>
-      {userDetails ? <Cmd /> : <div>Please login to get the data</div>}
+      {userDetails ? <Cmd /> : <h1 className='text-center mt-5'>Please login to get the data !</h1>}
     </div>
   );
 }

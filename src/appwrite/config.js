@@ -14,24 +14,23 @@ export class ConfigService {
         // this.storage = new Storage(this.client)
     }
 
-    async createPost({ todo,email }) {
+  
+    
+    async createPost( todo, email ) {
         try {
-            return await this.databases.createDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, ID.unique(), {
-                todo:todo,
-                email:email
-                
-            })
-
+        //   console.log('Data passed to createPost:', { todo, email }); // Log the data
+          return await this.databases.createDocument(conf.appwriteDatabaseId, "66862309000663eded8e", ID.unique(), {
+            todo,
+            email,
+          });
         } catch (error) {
-            console.log(conf.appwriteCollectionId)
-            console.log(error)
+          console.log('Error in createPost:', error);
         }
-
-    }
+      }
 
     async updatePost(ID, { content }) {
         try {
-            return await this.databases.updateDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, ID, {
+            return await this.databases.updateDocument(conf.appwriteDatabaseId, "66862309000663eded8e", ID, {
                 content,
             })
 
@@ -42,7 +41,7 @@ export class ConfigService {
 
     async deletePost(id) {
         try {
-            await this.databases.deleteDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, id)
+            await this.databases.deleteDocument(conf.appwriteDatabaseId, "66862309000663eded8e", id)
             return true
 
         } catch (error) {
@@ -53,7 +52,7 @@ export class ConfigService {
 
     async getPost(id) {
         try {
-            return this.databases.getDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, id)
+            return this.databases.getDocument(conf.appwriteDatabaseId, "66862309000663eded8e", id)
 
         } catch (error) {
             console.log(error)
@@ -63,10 +62,9 @@ export class ConfigService {
 
     async getPosts(userEmail) {
         try {
-            return  await this.databases.listDocuments(conf.appwriteDatabaseId, conf.appwriteCollectionId, [
+             return await this.databases.listDocuments(conf.appwriteDatabaseId, "66862309000663eded8e", [
                 Query.equal('email', userEmail)
               ]);
-             
 
         } catch (error) {
             console.log(error)

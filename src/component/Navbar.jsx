@@ -1,18 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import authService from '../appwrite/auth';
 // import './Navbar.css'; // Import custom CSS for additional styling
 
 function Navbar() {
     const navigate = useNavigate()
+    const [user,setUser] =useState("")
 
     const logoutHandler = async ()=>{
         const x = await authService.logout()
-        // navigate("/login")
+        navigate("/login")
         console.log(x)
         console.log("logout successfully .")
         
 
+    }
+
+    useEffect(()=>{
+        getCurrentUser()
+
+    },[])
+
+    const getCurrentUser =async ()=>{
+        try {
+            const user = await authService.getCurrentUser()
+            setUser(user)
+            
+        } catch (error) {
+            console.log(error)
+        }
     }
     return (
         <div>
@@ -38,9 +54,9 @@ function Navbar() {
                         </li>
                     </ul>
                     <div>
-                        <NavLink to={"/login"} ><button className='btn btn-outline-light'>Login</button></NavLink>&nbsp;&nbsp;&nbsp;
-                        <NavLink to={"/signup"}><button className='btn btn-outline-light'>Signup</button></NavLink>&nbsp;&nbsp;&nbsp;
-                        <NavLink to={"/signup"}><button onClick={logoutHandler} className='btn btn-outline-danger'>Logout</button></NavLink>
+                        {!user ? <NavLink to={"/login"} ><button className='btn btn-outline-light'>Login</button></NavLink> : null}
+                        {!user ? <NavLink to={"/signup"}><button className='btn btn-outline-light'>Signup</button></NavLink>:null }
+                        {user ? <button onClick={logoutHandler} className='btn btn-outline-danger'>Logout</button>:null}
                     </div>
                 </div>
             </nav>
