@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import authService from '../appwrite/auth';
 import { useNavigate } from 'react-router-dom';
-// import './Auth.css'; // Import custom CSS for additional styling
+
 
 const Login = () => {
   const navigate = useNavigate()
@@ -20,13 +20,10 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission to the database
-    // console.log('Login Data:', formData);
-    // authService.login(formData)
     login(formData)
     setFormData({
-      email:"",
-      password:""
+      email: "",
+      password: ""
     })
   };
 
@@ -34,12 +31,10 @@ const Login = () => {
     try {
       const data = await authService.login(formData)
       console.log(data)
-      if(data){
-        // const userData = await authService.getCurrentUser()
-        // console.log(userData)
+      if (data) {
         navigate("/todos")
 
-      }else{
+      } else {
         console.log("current user cant find")
       }
 

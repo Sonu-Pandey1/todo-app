@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import authService from '../appwrite/auth';
-// import './Navbar.css'; // Import custom CSS for additional styling
+
 
 function Navbar() {
     const navigate = useNavigate()

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addTodo, deleteTodo } from '../redux/slices/TodoSlice';
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../redux/slices/TodoSlice';
 import authService from '../appwrite/auth';
 import configService from "../appwrite/config"
 
 function Todos() {
-  const todos = useSelector(state => state.todos);
+  // const todos = useSelector(state => state.todos);
   const dispatch = useDispatch();
   const [data, setData] = useState('');
   const [post, setPost] = useState([]);
@@ -30,6 +30,12 @@ function Todos() {
       console.log(error);
     }
   }
+
+  useEffect(() => {
+    getCurrentUser();
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   let handleAdd =async (e) => {
     e.preventDefault();
@@ -71,10 +77,7 @@ function Todos() {
     }
   }
 
-  useEffect(() => {
-    getCurrentUser();
-    
-  }, [])
+ 
 
   return (
     <div>

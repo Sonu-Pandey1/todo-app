@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import authService from "../appwrite/auth"
-import { NavLink, useNavigate } from 'react-router-dom';
-// import {account} from "../appwrite/auth"
-// import { ID } from 'appwrite';
-// import conf from '../conf/conf';
+import { NavLink } from 'react-router-dom';
 
 const Signup = () => {
-  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,7 +18,7 @@ const Signup = () => {
     });
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Signup Data:', formData);
     // authService.createUser()
@@ -29,13 +26,13 @@ const Signup = () => {
     authService.createUser(formData)
     // create(formData)
     setFormData({
-      name:"",
-      password:"",
-      email:""
+      name: "",
+      password: "",
+      email: ""
     })
   };
 
- 
+
 
 
 
