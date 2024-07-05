@@ -21,7 +21,7 @@ const About = () => {
           </p>
           <p>
             Our team consists of experienced professionals in various fields including front-end development, back-end development, and UI/UX design. 
-            We believe in continuous learning and improvement, and we are always looking for new challenges to tackle.
+            We believe in continuous  learning and improvement, and we are always looking for new challenges to tackle.
           </p>
         </div>
         <div className="col-md-6">
