@@ -28,6 +28,7 @@ const Login = () => {
   };
 
   const login = async (formData) => {
+    // console.log(formData)
     try {
       const data = await authService.login(formData)
       console.log(data)
